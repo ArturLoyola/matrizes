@@ -1,46 +1,32 @@
+
 package exercicio03;
 
 import java.util.Scanner;
 
-public class Exercicio03 {
-
-    static boolean ehPrimo(int numero) {
-        if (numero <= 1) {
-            return false;
-        }
-
-        for (int i = 2; i < numero; i++) {
-            if (numero % i == 0) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    static void exibirPrimos(int[] numeros) {
-        System.out.print("Primos:");
-
-        for (int i = 0; i < numeros.length; i++) {
-            if (ehPrimo(numeros[i])) {
-                System.out.print(" " + numeros[i]);
-            }
-        }
-
-        System.out.println();
-    }
-
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] numeros = new int[8];
 
-        for (int i = 0; i < numeros.length; i++) {
-            System.out.print("Digite o número " + (i + 1) + ": ");
-            numeros[i] = sc.nextInt();
+        int[][] matriz = new int[3][3];
+
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                System.out.print("Digite um numero: ");
+                matriz[i][j] = sc.nextInt();
+            }
         }
 
-        System.out.println();
-        exibirPrimos(numeros);
+        int maior = matriz[0][0];
+
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                if(matriz[i][j] > maior){
+                    maior = matriz[i][j];
+                }
+            }
+        }
+
+        System.out.println("Maior valor: " + maior);
 
         sc.close();
     }
